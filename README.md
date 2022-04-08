@@ -1,7 +1,7 @@
 # BuzzGuru API
 
 # Introduction
-Welcome to the technical overview of the Modash API. Below we outline some best practices, error codes and how to access and use the API.
+Welcome to the technical overview of the BuzzGuru API. Below we outline some best practices, error codes and how to access and use the API.
 
 If you have any questions about the process or pricing, you can contact support@buzzguru.com.
 
