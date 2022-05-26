@@ -73,18 +73,18 @@ Example of error response
 
 ### Response data
 
-| Field         | Types        | Description |
-|---------------|--------------|-------------|
-| _id           | String       |             |
-| username      | String, null |             |
-| name          | String, null |             |
-| likes         | Number, null |             |
-| followerCount | Number, null |             |
-| er            | Number, null |             |
-| score         | Number, null |             |
+| Field         | Types        | Description     |
+|---------------|--------------|-------------    |
+| _id           | String       |                 |
+| username      | String, null |                 |
+| name          | String, null |                 |
+| likes         | Number, null |                 |
+| followerCount | Number, null |                 |
+| er            | Number, null | 0-100 (Percent) |
+| score         | Number, null |                 |
 | language      | String, null | [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) code* |
 | country       | String, null | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) code |
-| avatar        | String, null |             |
+| avatar        | String, null |                 |
 
 
 * Except Chinese dialects
