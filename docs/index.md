@@ -13,8 +13,8 @@ You can get your access token inside cabinet https://buzzguru.com/settings/api o
 All requests are authenticated based on a bearer token contained in the:
 
 `Authorization` header field where the value is in the format `Bearer {token}`
-or `accessToken` body parameter
-or `accessToken` query parameter
+or `x-access-token` header parameter
+or `token` query parameter
 
 # Communications
 
@@ -24,7 +24,7 @@ Request params could be in query or inside POST/PUT json body.
 
 ## Responses
 
-Correct response has HTTP status code `200. The data field contain payload with Number, String, Object or Array data.
+Correct response has HTTP status code `200`. The data field contain payload with `Number`, `String`, `Object` or `Array` data.
 
 Example of correct response
 ```json
