@@ -1,37 +1,109 @@
-## Welcome to GitHub Pages
+# BuzzGuru API
 
-You can use the [editor on GitHub](https://github.com/Manuel83/sample/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+# Introduction
+Welcome to the technical overview of the BuzzGuru top API. Below we outline some best practices, error codes and how to access and use the API.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+If you have any questions about the process or pricing, you can contact support@buzzguru.com.
 
-### Markdown
+# Authentication
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Bearer
+You can get your access token inside cabinet https://buzzguru.com/settings/api or contact us by email support@buzzguru.com.
 
-```markdown
-Syntax highlighted code block
+All requests are authenticated based on a bearer token contained in the:
 
-# Header 1
-## Header 2
-### Header 3
+`Authorization` header field where the value is in the format `Bearer {token}`
+or `accessToken` body parameter
+or `accessToken` query parameter
 
-- Bulleted
-- List
+# Communications
 
-1. Numbered
-2. List
+# Request params
 
-**Bold** and _Italic_ and `Code` text
+Request params could be in query or inside POST/PUT json body.
 
-[Link](url) and ![Image](src)
+## Responses
+
+Correct response has HTTP status code `200. The data field contain payload with Number, String, Object or Array data.
+
+Example of correct response
+```json
+{
+    "ok": true,
+    "data": [{
+        "some": "items"
+    }]
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+## Errors
+If API returns errors then HTTP status code is different from `200` (corresponding `40x` or `50x` code) and error details are formatted as such;
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Manuel83/sample/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Example of error response
+```json
+{
+    "ok": false,
+    "code": "ERR_CODE",
+    "message": "Error text details"
+}
+```
 
-### Support or Contact
+## Authentication errors
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+| HTTP status code | Error code | Error description          |
+|------------------|------------|----------------------------|
+| 401              |   ERR_401  | No access token in request |
+| 403              |   ERR_403  | Wrong access token         |
+
+
+# API Usage
+
+## Top of Instagram channels
+
+`GET /api/v1/top/instagram/channel/`
+
+### Request params
+| Name         | Type   | Description      | Values                                | Default     |
+|--------------|--------|------------------|---------------------------------------|-------------|
+| sortBy       | String | sort type        | subscribers, er, likes, views, online | subscribers |
+| limit        | Number | Top output count | 0-100                                 | 20          |
+
+
+### Response data
+
+| Field         | Types        | Description |
+|---------------|--------------|-------------|
+| _id           | String       |             |
+| username      | String, null |             |
+| name          | String, null |             |
+| likes         | Number, null |             |
+| followerCount | Number, null |             |
+| er            | Number, null |             |
+| score         | Number, null |             |
+| language      | String, null | [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) code* |
+| country       | String, null | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) code |
+| avatar        | String, null |             |
+
+
+### Response example
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "_id": "25025320",
+      "username": "instagram",
+      "name": "Instagram",
+      "likes": 518324,
+      "followerCount": 506820409,
+      "er": 0.1,
+      "score": 52,
+      "language": "en",
+      "country": "in",
+      "avatar": "https://scontent-dfw5-1.cdninstagram.com/v/t51.2885-19/281440578_1088265838702675_6233856337905829714_n.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent-dfw5-1.cdninstagram.com&_nc_cat=1&_nc_ohc=ZJICX9xf498AX_pEFXx&edm=ABfd0MgBAAAA&ccb=7-5&oh=00_AT_xO55GxgUSKtckwTSIdYZmK5yE1eIwowXgv33YuiRd6A&oe=629347D8&_nc_sid=7bff83",
+    }
+  ]
+}
+```
