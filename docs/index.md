@@ -86,6 +86,8 @@ Example of error response
 | avatar        | String, null |             |
 
 
+* Except Chinese dialects
+
 ### Response example
 
 ```json
