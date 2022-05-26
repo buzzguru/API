@@ -64,6 +64,7 @@ Example of error response
 `GET /api/v1/top/instagram/channel/`
 
 ### Request params
+
 | Name         | Type   | Description      | Values                                | Default     |
 |--------------|--------|------------------|---------------------------------------|-------------|
 | sortBy       | String | sort type        | subscribers, er, likes, views, online | subscribers |
