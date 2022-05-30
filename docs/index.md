@@ -76,6 +76,7 @@ Example of error response
 | Field         | Types        | Description     |
 |---------------|--------------|-------------    |
 | _id           | String       |                 |
+| avatar        | String, null |                 |
 | username      | String, null |                 |
 | name          | String, null |                 |
 | likes         | Number, null |                 |
@@ -84,7 +85,6 @@ Example of error response
 | score         | Number, null |                 |
 | language      | String, null | [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) code* |
 | country       | String, null | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) code |
-| avatar        | String, null |                 |
 
 
 * Except Chinese dialects
