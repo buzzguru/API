@@ -65,10 +65,11 @@ Example of error response
 
 ### Request params
 
-| Name         | Type   | Description      | Values                                | Default     |
-|--------------|--------|------------------|---------------------------------------|-------------|
-| sortBy       | String | sort type        | subscribers, er, likes, views, online | subscribers |
-| limit        | Number | Top output count | 0-100                                 | 20          |
+| Name         | Type   | Description      | Default     | Values                                |
+|--------------|--------|------------------|-------------|---------------------------------------|
+| sortBy       | String | sort type        | subscribers | subscribers, er, likes, views, online |
+| limit        | Number | Top output count | 20          | 0-100                                 |
+| country      | String | country filter   | null        | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) code |
 
 
 ### Response data
